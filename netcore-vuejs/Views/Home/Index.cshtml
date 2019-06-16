@@ -1,24 +1,216 @@
-﻿<h1>Getting Started with Vue.js in .NET Core</h1>
+﻿<!DOCTYPE html>
+<html class="no-js" lang="">
 
-<div id="form">
-    <p>
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter your full name" v-model="FullName" class="form-control" />
-    </p>
+<head>
+    <meta charset="utf-8">
+    <title>Quick Application - Fusion Medical Staffing</title>
+    <meta name="description" content="Complete our quick application to start becoming a traveler with Fusion Medical Staffing." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <p>
-        <label>Email</label>
-        <input type="text" placeholder="Enter your email" v-model="Email" class="form-control" v-on:blur="CheckEmail" />
-        <span class="invalid-input" v-show="InvalidEmail">Invalid Email</span>
-    </p>
+    <!-- <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="icon" href="/images/favicon.ico">
 
-    <p>
-        <label>Comments</label>
-        <textarea rows="10" placeholder="Enter some positive comments" v-model="Comments" class="form-control"></textarea>
-    </p>
+    @*<link href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css" rel="text/html">*@
+</head>
 
-    <div id="form-buttons">
-        <button type="button" class="danger" v-on:click="ResetForm">Reset Form</button>
-        <button type="button" class="success" ref="SubmitButton" v-bind:disabled="isSubmitDisabled" v-on:click="SubmitForm">Submit Form</button>
-    </div>
-</div>
+<body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <header class="container content-banner sticky-top bg-white" role="banner">
+        <nav class="navbar navbar-fms navbar-light bg-transparent">
+            <a class="navbar-brand logo-wrapper" href="#">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535.184 519.906">
+                        <defs>
+                            <style type="text/css">
+                                .logo-header {
+                                    fill: #FFFFFF;
+                                }
+                            </style>
+                        </defs>
+                        <title>logo-header</title>
+                        <g id="Layer_2" data-name="Layer 2">
+                            <g id="Layer_1-2" data-name="Layer 1">
+                                <path class="logo-header" d="M267.6,488.375a238.9,238.9,0,0,1-121.863-33.133,2.385,2.385,0,0,0-.082-1.741c-3.679-7.872-10.627-33.092,16.8-82.239,9.728-17.445,24.876-41.283,41.1-67.058,24.574,3.7,47.038,4.439,59.121-9.3,5.028-5.714,12.009-24.5,7.153-38.487-.262-.744-.728-1.373-1.5-1.161a194.72,194.72,0,0,1-38.446,6.589c17.519-28.833,33.582-57.142,42.681-79.264,82.239,8.314,176.258,31.563,214.484-4.521a221.45,221.45,0,0,1,15.688,81.9c0,125.95-105.48,228.422-235.134,228.422M32.454,259.953C32.454,134,137.943,31.53,267.6,31.53c81.691,0,153.761,40.7,195.919,102.309C380.32,164,232.649,122.411,170,134.3c-26.372,5-52.654,19.53-54,46.384-1.063,21.377,23.911,32.765,23.911,32.765,15.6-24.4,45.493-32.626,81.724-33.411-11.02,23-29.438,50.97-48.681,80.6-13.6-.711-27.337-1.055-42.068.5-29.765,3.147-21.435,30.7-18.81,37.907a1.9,1.9,0,0,0,2.722,1.292c9.417-4.88,21.86-5.543,35.618-4.374-21.042,33.95-39.869,68.326-47.292,98.515a117.531,117.531,0,0,0-3.638,24.966c-41.43-41.2-67.034-97.485-67.034-159.492M267.6,0C120.04,0,0,116.615,0,259.953S120.04,519.906,267.6,519.906,535.184,403.291,535.184,259.953,415.153,0,267.6,0"></path>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            </a>
+            <ul class="search-jobs mr-auto mt-2 mt-lg-0">
+                <li>
+                    <a id="job-search-button" href="/">
+                        <i id="searchjob" v-bind:class="visuals"></i> Search Jobs
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav desktop-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Traveler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Student</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Client</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                </li>
+                <li class="nav-item apply">
+                    <a class="nav-link" href="#">
+                        <div class="nav-link-wrapper">
+                            LogIn/Register
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Application content here -->
+    <main class="content-main" role="main">
+        <div id="form" class="container">
+            <div class="row">
+                <div class="page-title-wrapper col-12">
+                    <h2 class="page-title">Let's get started.</h2>
+                    <h1 class="page-title">Apply <!-- <=?php the_title();?> --></h1>
+                </div>
+                <div class="col-12 col-md-4">
+                    <ul class="nav flex-column ul-quick-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log In</a>
+                        </li>
+                    </ul>
+                    <p class="section-apply-sidebar-text">Finished your application? Get a jump start on the application process by filling out the <a href="/Home/SkillsChecklist/">Skills Checklist</a> and the <a href="/Home/DrugConsent/">Drug Consent Form</a>.</p>
+                </div>
+
+                <div class="col">
+                    <div class="quick-application-wrapper">
+                        <form class="quick-application-form">
+                            <h4 class="fs-h4">Quick Application</h4>
+                            <div class="required-fields">
+                                *Required fields
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-6">
+                                    <input type="text" v-model="FirstName" class="form-control form-control-lg form-control-inline-fs" placeholder="First name*">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" v-model="LastName" class="form-control form-control-lg form-control-inline-fs" placeholder="Last name*">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="email" v-model="Email" class="form-control form-control-lg form-control-inline-fs" placeholder="Email*">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="number" v-model="MobilePhone" class="form-control form-control-lg form-control-inline-fs" placeholder="Mobile Phone*">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <select id="inputState" v-model="Category" class="form-control form-control-lg form-control-inline-fs">
+                                        <option value="" selected="selected" class="gf_placeholder">Select a category*</option>
+                                        <option value="Cardiopulmonary">Cardiopulmonary</option>
+                                        <option value="Cath Lab">Cath Lab</option>
+                                        <option value="Corporate">Corporate</option>
+                                        <option value="Laboratory">Laboratory</option>
+                                        <option value="LPN/CNA">LPN/CNA</option>
+                                        <option value="Radiology">Radiology</option>
+                                        <option value="RN">RN</option>
+                                        <option value="Therapy">Therapy</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <select id="inputState" v-model="Specialty" class="form-control form-control-lg form-control-inline-fs">
+                                        <option value="" selected="selected" class="gf_placeholder">Select a specialty*</option>
+                                        <option value="">Please select a category first</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <select id="inputState" v-model="StateLicense" class="form-control form-control-lg form-control-inline-fs">
+                                        <option value="" selected="selected" class="gf_placeholder">Select states with current license</option>
+                                        <option value="AL">Alaska</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                    <select id="inputState" v-model="HearAbout" class="form-control form-control-lg form-control-inline-fs">
+                                        <option value="">How did you hear about us?</option>
+                                        <option value="AACC">AACC</option>
+                                        <option value="AlliedVIP">AlliedVIP</option>
+                                        <option value="ATC">ATC</option>
+                                        <option value="Bluepipes">Bluepipes</option>
+                                        <option value="CAMLT">CAMLT</option>
+                                        <option value="CareerBuilder">CareerBuilder</option>
+                                        <option value="CNA Travelers Convention">CNA Travelers Convention</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Google Search">Google Search</option>
+                                        <option value="Gypsy Nurse">Gypsy Nurse</option>
+                                        <option value="Health Jobs Nationwide">Health Jobs Nationwide</option>
+                                        <option value="Highway Hypodermics">Highway Hypodermics</option>
+                                        <option value="Indeed">Indeed</option>
+                                        <option value="Lensa">Lensa</option>
+                                        <option value="LinkedIn">LinkedIn</option>
+                                        <option value="Monster">Monster</option>
+                                        <option value="Nomadicare">Nomadicare</option>
+                                        <option value="Nursingjobs.us">Nursingjobs.us</option>
+                                        <option value="Pinterest">Pinterest</option>
+                                        <option value="Referral">Referral</option>
+                                        <option value="RNTravelWeb">RNTravelWeb</option>
+                                        <option value="RNVIP">RNVIP</option>
+                                        <option value="School Visit or Career Fair">School Visit or Career Fair</option>
+                                        <option value="Therapist Centric">Therapist Centric</option>
+                                        <option value="Trade Show">Trade Show</option>
+                                        <option value="Travelnurse.me">Travelnurse.me</option>
+                                        <option value="Travelnursecentral">Travelnursecentral</option>
+                                        <option value="TravelNurseSource">TravelNurseSource</option>
+                                        <option value="Travelers Conference">Travelers Conference</option>
+                                        <option value="Twitter">Twitter</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <button class="form-control mb-5" v-on:click="SubmitForm">Submit</button>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="container-full" role="contentinfo">
+        <!-- [...] -->
+    </footer>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <!-- <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+</body>
+
+</html>

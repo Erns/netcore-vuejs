@@ -1,33 +1,45 @@
 ﻿import { validateEmail } from './utils';
+import { debug } from 'util';
 
-new Vue({
+//var searchJob = new Vue({
+//    el: '#searchjob',
+//    data: {
+//        loaded: false
+//    },
+//    computed: {
+//        visuals: function () {
+//            return this.loaded ? 'fas fa-search' : 'fas fa-search navbar-loaded';
+//        }
+//    },
+//    mounted: function () {
+//        this.loaded = true;
+//    }
+//});
+
+var app = new Vue({
     el: '#form',
     data: {
-        FullName: '',
+        FirstName: '',
+        LastName: '',
         Email: '',
-        Comments: '',
-        InvalidEmail: false
+        MobilePhone: 0,
+        Category: '',
+        Specialty: '',
+        StateLicense: '',
+        HearAbout: ''        
     },
     computed: {
         isSubmitDisabled() {
             let isDisabled = true;
-
-            if (
-                this.FullName !== '' &&
-                this.Email !== '' &&
-                this.Comments !== ''
-            ) {
-                isDisabled = false;
-            }
 
             return isDisabled;
         }
     },
     methods: {
         ResetForm() {
-            this.FullName = '';
-            this.Email = '';
-            this.Comments = '';
+            //this.FullName = '';
+            //this.Email = '';
+            //this.Comments = '';
         },
         CheckEmail() {
             if (!validateEmail(this.Email)) {
@@ -42,6 +54,17 @@ new Vue({
             if (!validateEmail(this.Email)) {
                 this.InvalidEmail = true;
                 submit = false;
+                this.$bvModal.msgBoxOk("Invalid Email",
+                    {
+                        title: 'test 1',
+                        size: 'sm',
+                        buttonSize: 'sm',
+                        okVariant: 'danger',
+                        headerClass: 'p-2 border-bottom-0',
+                        footerClass: 'p-2 border-top-0',
+                        centered: true
+                    });
+
             } else {
                 this.InvalidEmail = false;
             }
@@ -52,9 +75,34 @@ new Vue({
                     url: '/Home/SubmitedForm',
                     data: { "Fields": this.$data }
                 }).then(res => {
-                    debugger
-                    alert('Successfully submitted feedback form ');
-                    this.$refs.SubmitButton.setAttribute("disabled", "disabled");
+                    //this.$bvModal.msgBoxOk("Successfully submitted feedback form",
+                    //    {
+                    //        title: 'test 1',
+                    //        size: 'sm',
+                    //        buttonSize: 'sm',
+                    //        okVariant: 'danger',
+                    //        headerClass: 'p-2 border-bottom-0',
+                    //        footerClass: 'p-2 border-top-0',
+                    //        centered: true
+                    //    });
+
+                    //this.$refs.SubmitButton.setAttribute("disabled", "disabled");
+                    this.$bvModal.msgBoxConfirm("Is this the right info?\n\n" + res.request.responseText,
+                        {
+                            title: 'test',
+                            size: 'sm',
+                            buttonSize: 'sm',
+                            okVariant: 'danger',
+                            headerClass: 'p-2 border-bottom-0',
+                            footerClass: 'p-2 border-top-0',
+                            centered: true
+                        })
+                        .then(value => {
+                            if (value) {
+                                alert('ok');
+                            }
+                        });
+
                 }).catch(err => {
                     alert(`There was an error submitting your form. See details: ${err}`);
                     });
@@ -62,3 +110,4 @@ new Vue({
         }
     }
 });
+

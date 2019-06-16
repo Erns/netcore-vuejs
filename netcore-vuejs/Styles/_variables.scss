@@ -1,0 +1,29 @@
+/*
+    Variables should follow the `$component-state-property-size` formula for
+    consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs. 
+*/
+
+/* Fusion Branding - Colors */
+$purple:  #222e62 !default;
+$pink:    #c669aa !default;
+$orange:  #ed8c22 !default;
+$teal:    #1eb1be !default;
+
+/* Global primary color */
+$primary: $orange !default;
+
+/* Fusion Branding - Fonts */
+$font-family-opensans: 'Open Sans', sans-serif;
+$font-family-vivabeautiful-regular: 'viva_beautifulregular', sans-serif;
+
+/* New Breakpoints 
+$grid-breakpoints: (
+    xxl: 1440px,
+    xxxl: 1600px
+);
+
+$container-max-widths: (
+    xxl: 1440px,
+    xxxl: 1600px
+);
+*/

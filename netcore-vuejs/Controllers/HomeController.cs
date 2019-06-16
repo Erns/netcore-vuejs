@@ -15,11 +15,21 @@ namespace netcore_vuejs.Controllers
             return View();
         }
 
-        public IActionResult SubmitedForm([FromBody] FormViewModel form)
+        public IActionResult SkillsChecklist()
+        {
+            return View();
+        }
+
+        public IActionResult DrugConsent()
+        {
+            return View();
+        }
+
+        public IActionResult SubmitedForm([FromBody] QuickAppViewModel form)
         {
             string message = "";
 
-            return Json(new { message });
+            return Json(form);
         }
 
 

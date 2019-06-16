@@ -1,0 +1,166 @@
+header.container {
+    padding: 0;
+}
+
+.navbar.navbar-fms {
+    padding: 0;
+    background-color: #fff;
+}
+
+header a div.logo {
+    width: 100px;
+    height: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar-brand.logo-wrapper {
+    padding: 0;
+    float: left;
+}
+
+div.logo svg {
+    width: 100%;
+    height: 90px;
+}
+
+.logo path.logo-header {
+    max-width: 70px;
+    fill: #fff;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.logo:hover path.logo-header {
+    fill: #fff;
+    opacity: .5;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+header .bg-transparent .logo .logo-header,
+header .bg-light .logo .logo-header {
+    fill: #000 !important;
+}
+
+ul.search-jobs li svg {
+    margin-right: 10px;
+}
+
+ul.search-jobs {
+    padding: 0;
+    margin: 0;
+    height: 90px;
+    float: left;
+}
+
+ul.search-jobs li {
+    list-style: none;
+}
+
+ul.search-jobs li a {
+    height: 90px;
+    line-height: 90px;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+}
+ 
+ul.search-jobs li .fa {
+    padding-right: 10px;
+}
+
+ul.desktop-menu li a:hover,
+ul.search-jobs li a:hover {
+    color: #22b0bf;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    text-decoration: none;
+}
+
+.desktop-menu {
+    width: 60%;
+    float: right;
+}
+
+.desktop-menu li {
+    height: 90px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.desktop-menu li a,
+.search-jobs li a {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: .06em;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    -webkit-transition: all, 0.5s;
+    transition: all, 0.5s;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.navbar-light .desktop-menu li a,
+.navbar-light .search-jobs li a {
+  color: #4f4f4f;
+}
+
+li.apply .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li.apply a {
+    background: #22b0bf;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    padding-right: 15px;
+    padding-left: 15px;
+    white-space: nowrap;
+    height: 60px;
+    width: 100%;
+}
+
+li.apply a:hover {
+    background: #087482;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    opacity: 1;
+  }
+
+  li.apply a .nav-link-wrapper {
+      color: #fff;
+  }
+  
+@media screen and (max-width: 950px) {
+
+    header a div.logo {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 70px;
+    }
+
+    ul.search-jobs li a {
+        padding-right: 5px;
+        padding-left: 15px;
+        font-size: 13px;
+    }
+
+    ul.search-jobs li .fa {
+        padding-right: 5px;
+    }
+
+    .desktop-menu li a {
+        font-size: 13px;
+    }
+}
+

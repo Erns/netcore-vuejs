@@ -5,8 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\generator_config.txt" />
+    <None Include="wwwroot\fonts\specimen_files\grid_12-825-55-15.css" />
+    <None Include="wwwroot\fonts\specimen_files\specimen_stylesheet.css" />
+    <None Include="wwwroot\fonts\stylesheet.css" />
+    <None Include="wwwroot\fonts\vivabeautiful-demo.html" />
+    <None Include="wwwroot\fonts\vivabeautiful-webfont.ttf" />
+    <None Include="wwwroot\fonts\vivabeautiful-webfont.woff" />
+    <None Include="wwwroot\fonts\vivabeautiful-webfont.woff2" />
+    <None Include="wwwroot\images\favicon.ico" />
+    <None Include="wwwroot\images\home-speckles-2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
 </Project>

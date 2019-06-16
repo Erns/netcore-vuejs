@@ -1,13 +1,13 @@
 {
   "name": "netcore-vuejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Testing .Net Core w/ VueJS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "me",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.5",
